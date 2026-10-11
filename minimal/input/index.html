@@ -1,0 +1,37 @@
+<!-- Copyright (c) 2026 WD Studios LLC. -->
+<!-- SPDX-License-Identifier: MIT -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Input</title>
+  <style>
+    html, body { width: 100%; height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #17212a; color: #eef2f5; font: 20px sans-serif; }
+    main { text-align: center; }
+    nav { display: flex; justify-content: center; gap: 12px; margin: 30px 0; }
+    button { padding: 14px 20px; border: 2px solid #9aadb7; background: #293943; color: inherit; font: inherit; }
+    button:focus { outline: 3px solid #f4c95d; outline-offset: 3px; }
+    output { color: #f4c95d; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Navigate the controls</h1>
+    <nav>
+      <button type="button">First</button>
+      <button type="button">Second</button>
+      <button type="button">Third</button>
+    </nav>
+    <output id="status">Use Tab or a gamepad. Press Enter or A to activate.</output>
+  </main>
+  <script>
+    for (const button of document.querySelectorAll("button")) {
+      button.addEventListener("click", () => {
+        document.getElementById("status").textContent = `${button.textContent} activated`;
+      });
+    }
+  </script>
+</body>
+</html>

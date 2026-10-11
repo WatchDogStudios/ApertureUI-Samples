@@ -1,0 +1,13 @@
+[extend]
+useDefault = true
+
+# An Aperture UI licence key is a secret of the person who owns it. The all-X key is the documented placeholder.
+[[rules]]
+id = "aperture-ui-license-key"
+description = "Aperture UI licence key"
+regex = '''APUI(?:-[A-Z0-9]{4}){4}'''
+keywords = ["apui-"]
+
+[[rules.allowlists]]
+regexTarget = "match"
+regexes = ['''APUI-XXXX-XXXX-XXXX-XXXX''']

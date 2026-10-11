@@ -1,0 +1,46 @@
+# One regex per line, matched case-insensitively against every line of every text file and against every
+# file and folder path in the repository. A line starting with "@path " is matched against paths only.
+#
+# This file lists only generic patterns. Names that must not even be written into this public repository
+# (console codenames, internal projects, documents and people, competitor products) live in a private pattern
+# file that the maintainers' CI passes to forbidden_scan.py with --extra-patterns.
+#
+# forbidden_scan.py does not report a line of this file that is exactly one of its own patterns, and nothing
+# else in it: a comment or any other text here is scanned like every other file.
+#
+# Boundaries use lookarounds, not \b, because \b treats the underscore as a word character and would miss
+# NAME_PLATFORM_X1 or X1_SDK.
+
+# Leftovers and leak markers
+(?<![A-Za-z0-9])TODO(?![A-Za-z0-9])
+(?<![A-Za-z0-9])FIXME(?![A-Za-z0-9])
+(?<![A-Za-z0-9])NDA(?![A-Za-z0-9])
+CONFIDENTIAL
+
+# A third-party rendering product name (the lookahead spares the ordinary English word that starts the same way)
+slug(?!gish)
+
+# Absolute paths: any drive letter except the Windows and Program Files folders (also when a string literal
+# doubles the slashes), and Unix home folders
+(?<![A-Za-z0-9])[A-Za-z]:[\\/]+(?![\\/]|Program Files|Windows)
+(?<![A-Za-z0-9._~-])/(home|Users)/
+
+# Secrets
+-----BEGIN [A-Z ]*PRIVATE KEY-----
+(?<![A-Za-z0-9])AKIA[0-9A-Z]{16}(?![A-Za-z0-9])
+(?<![A-Za-z0-9])gh[pousr]_[A-Za-z0-9]{36,}
+(?<![A-Za-z0-9])github_pat_[A-Za-z0-9_]{20,}
+(?<![A-Za-z0-9])xox[abprs]-[A-Za-z0-9-]{10,}
+(?<![A-Za-z0-9])sk-[A-Za-z0-9]{20,}
+(api[_-]?key|secret|token|passw(or)?d)["']?\s*[:=]\s*["'](?!\$\{\{)[^"']{8,}["']
+
+# Aperture UI licence keys (the all-X placeholder is the documented example)
+(?<![A-Za-z0-9])APUI(?!-XXXX-XXXX-XXXX-XXXX)(-[A-Z0-9]{4}){4}(?![A-Za-z0-9])
+
+# Binary build output and licence files never belong in the repository
+@path \.(dll|lib|pdb|exe|obj|ilk|exp)$
+@path (^|/)aperture\.license$
+
+# Parts of the engine this repository deliberately leaves out
+@path D3D12
+@path \.bak$

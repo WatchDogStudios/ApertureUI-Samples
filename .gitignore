@@ -1,0 +1,26 @@
+build/
+/build*/
+out/
+node_modules/
+_deps/
+*.user
+.vs/
+.vscode/
+.idea/
+__pycache__/
+CMakeUserPresets.json
+
+# What APPlayer writes beside its executable when it runs from a source folder
+apertureplayer.log
+aperture_player_state.json
+aperture_player_imgui.ini
+
+# Binary build output and licence files never belong in the repository (forbidden_scan.py rejects them by name too)
+*.dll
+*.lib
+*.pdb
+*.exe
+*.obj
+*.ilk
+*.exp
+aperture.license

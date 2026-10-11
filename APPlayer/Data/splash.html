@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<!-- Copyright (c) 2026 WD Studios LLC.
+     SPDX-License-Identifier: MIT -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Aperture Player</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #121624 0%, #1a1f35 50%, #0f1220 100%);
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .hero-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 48px 64px;
+      background: linear-gradient(11deg, rgba(46, 146, 189, 0.95), rgba(122, 82, 189, 0.95));
+      border-radius: 18px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      animation: pulse 5s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.95; }
+      100% { transform: scale(1.02); opacity: 1; }
+    }
+
+    .title {
+      font-size: 34px;
+      font-weight: 700;
+      color: rgba(250, 252, 255, 1.0);
+      text-align: center;
+      padding: 6px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: rgba(229, 240, 255, 0.85);
+      text-align: center;
+      margin-top: 24px;
+      animation: gpuPulse 3.4s ease-in-out infinite alternate;
+    }
+
+    @keyframes gpuPulse {
+      0% { opacity: 0.7; }
+      100% { opacity: 1; }
+    }
+
+    .accent-bar {
+      margin-top: 32px;
+      padding: 12px 24px;
+      background: linear-gradient(90deg, rgba(73, 146, 212, 0.85), rgba(191, 210, 255, 0.85));
+      border-radius: 10px;
+      animation: sweep 4.2s ease-in-out infinite alternate;
+    }
+
+    @keyframes sweep {
+      0% { transform: translateX(-5px); opacity: 0.8; }
+      100% { transform: translateX(5px); opacity: 1; }
+    }
+
+    .accent-text {
+      font-size: 16px;
+      color: rgba(242, 252, 255, 0.95);
+      text-align: center;
+    }
+
+    .orbit-container {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .orbit-dot {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: radial-gradient(circle, rgba(150, 200, 255, 0.9), rgba(100, 150, 220, 0.5));
+      border-radius: 50%;
+      animation: orbit 9s linear infinite;
+    }
+
+    .orbit-dot:nth-child(1) { animation-delay: 0s; }
+    .orbit-dot:nth-child(2) { animation-delay: 3s; }
+    .orbit-dot:nth-child(3) { animation-delay: 6s; }
+
+    @keyframes orbit {
+      0% {
+        top: 50%;
+        left: 0%;
+        opacity: 0;
+        transform: scale(0.5);
+      }
+      10% { opacity: 1; transform: scale(1); }
+      50% {
+        top: 20%;
+        left: 50%;
+      }
+      90% { opacity: 1; transform: scale(1); }
+      100% {
+        top: 50%;
+        left: 100%;
+        opacity: 0;
+        transform: scale(0.5);
+      }
+    }
+
+    .glint {
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      animation: glint 6.5s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes glint {
+      0% { left: -100%; }
+      100% { left: 200%; }
+    }
+
+    .version {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      font-size: 12px;
+      color: rgba(150, 160, 180, 0.6);
+    }
+  </style>
+</head>
+<body>
+  <div class="orbit-container">
+    <div class="orbit-dot"></div>
+    <div class="orbit-dot"></div>
+    <div class="orbit-dot"></div>
+  </div>
+
+  <div class="hero-card">
+    <div class="glint"></div>
+    <h1 class="title">Aperture Player</h1>
+    <div class="subtitle">GPU Render Pipeline Active</div>
+    <div class="accent-bar">
+      <span class="accent-text">Ready for HTML Content</span>
+    </div>
+  </div>
+
+  <div class="version">ApertureUI SDK</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+# Format Style Options - Created with Clang Power Tools
+---
+BasedOnStyle: WebKit
+AccessModifierOffset: -2
+BreakBeforeBraces: Allman
+ColumnLimit: 90
+ContinuationIndentWidth: 2
+ExperimentalAutoDetectBinPacking: true
+IndentWidth: 2
+ConstructorInitializerIndentWidth: 2
+AlignAfterOpenBracket: DontAlign
+AllowShortIfStatementsOnASingleLine: false
+TabWidth: 2
+PointerAlignment: Left
+IndentCaseLabels: true
+AllowShortFunctionsOnASingleLine: Inline
+MaxEmptyLinesToKeep: 3
+IndentPPDirectives: AfterHash
+NamespaceIndentation: All
+BreakConstructorInitializers: BeforeComma
+AlwaysBreakTemplateDeclarations: true
+MacroBlockBegin: "^NS_BEGIN_.*|BEGIN_SUBSYSTEM_DEPENDENCIES$"
+MacroBlockEnd: "^NS_END_.*|END_SUBSYSTEM_DEPENDENCIES$"
+AlignTrailingComments: true
+FixNamespaceComments: true
+AlignEscapedNewlines: Left
+CompactNamespaces: true
+SortIncludes: true
+...

@@ -1,0 +1,15 @@
+# Reviewed exceptions for forbidden_scan.py, one per line, in one of two forms:
+#   path:line:pattern     exactly as the scan prints the hit; silences that one pattern on that one line
+#   @identifier NAME      a name the samples cannot avoid because the SDK defines it; exempt wherever it appears
+#                         as a whole identifier
+# Entries are exempt from the scan itself; comments are not.
+
+# Shader names the SDK defines: the include file next to UIPlayer.hlsl, the marker in UIPlayer.hlsl where it is
+# spliced, and the two coverage functions UIPlayer.hlsl calls (common/D3D11Context.cpp loads, splices and stubs them).
+@identifier UISlugCore
+@identifier __SLUG_CORE__
+@identifier SlugAlphaCore
+@identifier SlugAlpha
+
+# The SDK setting that turns on GPU vector primitives (APPlayer/App.cpp, before the SDK starts).
+@identifier SetSlugPrimitivesEnabled

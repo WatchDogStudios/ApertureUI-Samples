@@ -1,0 +1,4 @@
+# Findings in the first commit, which held the placeholder values of the scanner's own tests as plain literals. They were
+# made-up values and are assembled from fragments now. Delete these two lines if that commit is ever rewritten away.
+faf890a4b8880a1e6f8987737e89878239f723bd:tools/test_checks.py:aws-access-token:69
+faf890a4b8880a1e6f8987737e89878239f723bd:tools/test_checks.py:generic-api-key:70

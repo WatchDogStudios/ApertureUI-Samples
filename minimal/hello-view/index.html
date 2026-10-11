@@ -1,0 +1,31 @@
+<!-- Copyright (c) 2026 WD Studios LLC. -->
+<!-- SPDX-License-Identifier: MIT -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hello View</title>
+  <style>
+    html, body { width: 100%; height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #101820; color: #f2f5f3; font: 20px sans-serif; }
+    main { text-align: center; }
+    button { padding: 14px 24px; border: 0; background: #82d4b4; color: #10221c; font: inherit; cursor: pointer; }
+    output { display: block; margin-top: 20px; color: #c4d2d3; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Hello, Aperture UI</h1>
+    <button id="hello" type="button">Click me</button>
+    <output id="result">Waiting for a click</output>
+  </main>
+  <script>
+    let clicks = 0;
+    document.getElementById("hello").addEventListener("click", () => {
+      clicks += 1;
+      document.getElementById("result").textContent = `Clicked ${clicks} time${clicks === 1 ? "" : "s"}`;
+    });
+  </script>
+</body>
+</html>
